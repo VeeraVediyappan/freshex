@@ -1,5 +1,8 @@
 const state = {
-    loggedIn: false
+    userAuth: {
+        loggedIn: false,
+        registered: false
+    }
 };
 
 export default state;

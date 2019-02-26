@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import RegisterButton from './button/index';
 import '../../src/App.css';
 
 const styles = theme => ({
@@ -97,7 +97,14 @@ class Registration extends React.Component {
             className={classes.textField}
             margin="normal"
           />
-           
+
+          <div>
+          <RegisterButton fnRegister = {this.props.fnRegister}>
+          Register
+          </RegisterButton>
+          </div>
+          
+
         </form>
         
         </div>

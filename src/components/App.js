@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../../src/App.css';
-import Demo from './Registration'
+import Registration from './Registration';
+import Modal from './modal/index';
+
 class App extends Component {
 
   render() {
@@ -14,8 +16,9 @@ class App extends Component {
         </header>
         <div>
         {this.props.loggedIn ? 
-          <Demo /> : ''}
+          <Registration fnRegister = {this.props.fnRegister}/> : ''}
         </div>
+        {this.props.registered && <Modal />}
       </div>
     );
   }

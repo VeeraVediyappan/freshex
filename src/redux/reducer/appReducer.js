@@ -1,17 +1,35 @@
-import { TOGGLE_LOGIN_STATUS } from '../../constants';
+import { TOGGLE_LOGIN_STATUS, REGISTER_USER } from '../../constants';
 
-const loginStatus = (state = false, action) => {
+export default (state = {}, action) => {
     switch (action.type) {
         case TOGGLE_LOGIN_STATUS:
-        console.log(action);
             //return action.payload;
             return {
                 ...state,
                 loggedIn : action.payload
+            }
+        case REGISTER_USER:  
+            return {
+                ...state,
+                 registered : true
+            }
+        default:
+            return state;
+    }
+}
+
+export const registerUser = (state = false, action) => {
+    switch (action.type) {
+        case REGISTER_USER:
+        console.log(action);
+            //return action.payload;
+            return {
+                ...state,
+                registered : true
             };
         default:
             return state;
     }
 }
 
-export default loginStatus;
+//export default loginStatus;
