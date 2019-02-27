@@ -98,7 +98,7 @@ class Registration extends React.Component {
             margin="normal"
           />
 
-          <div>
+          <div id="registerButton">
           <RegisterButton fnRegister = {this.props.fnRegister}>
           Register
           </RegisterButton>

@@ -20,6 +20,11 @@
     display: flex;
 }
 
+.container #registerButton {
+    margin-top: 20px;
+    margin-left: 71%;
+}
+
 .header_register {
     font-weight: bold;
     font-size: 24px;
