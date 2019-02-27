@@ -1,7 +1,8 @@
 const state = {
     userAuth: {
         loggedIn: false,
-        registered: false
+        registered: false,
+        otpVerified: false
     }
 };
 

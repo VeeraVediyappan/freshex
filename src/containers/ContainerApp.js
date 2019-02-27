@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { toggleLogin, register } from '../redux/actions/index'
+import { toggleLogin, register, verifyOtp } from '../redux/actions/index'
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     fnToggleLogin: status => dispatch(toggleLogin(status)),
-    fnRegister: () => dispatch(register())
+    fnRegister: () => dispatch(register()),
+    fnVerifyOtp: otp => dispatch(verifyOtp(otp))
   }
 }
 

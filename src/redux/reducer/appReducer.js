@@ -1,4 +1,4 @@
-import { TOGGLE_LOGIN_STATUS, REGISTER_USER } from '../../constants';
+import { TOGGLE_LOGIN_STATUS, REGISTER_USER,  VERIFY_OTP } from '../../constants';
 
 export default (state = {}, action) => {
     switch (action.type) {
@@ -13,6 +13,12 @@ export default (state = {}, action) => {
                 ...state,
                  registered : true
             }
+        case VERIFY_OTP:
+        console.log(action);
+            return {
+                ...state,
+                otpVerified: true
+            }    
         default:
             return state;
     }

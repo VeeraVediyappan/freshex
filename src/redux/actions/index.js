@@ -1,4 +1,4 @@
-import { TOGGLE_LOGIN_STATUS, REGISTER_USER } from '../../constants';
+import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP } from '../../constants';
 
 export const toggleLogin = status => dispatch => {
     console.log(status);
@@ -11,5 +11,12 @@ export const toggleLogin = status => dispatch => {
 export const register = () => dispatch => {
     dispatch({
         type: REGISTER_USER
+    });
+};
+
+export const verifyOtp = otp => dispatch => {
+    console.log('came');
+    dispatch({
+        type: VERIFY_OTP
     });
 };
