@@ -15,7 +15,7 @@ const styles = theme => ({
   const RegisterButton = (props) => {
     const { classes } = props;
     return (
-        <Button variant="outlined"  className={classes.button} onClick={props.fnCallback}>
+        <Button variant="outlined" color="inherit" className={classes.button} onClick={props.fnCallback}>
           {props.children}
         </Button>     
     );

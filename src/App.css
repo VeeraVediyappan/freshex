@@ -1,6 +1,8 @@
 .App {
     width: 80%;
     margin: auto;
+    background: #DCEDC8;
+    padding-bottom: 20px;
 }
 
 .App-header {

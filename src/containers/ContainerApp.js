@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { toggleLogin, register, verifyOtp } from '../redux/actions/index'
+import { loginUser, register, verifyOtp, openRegister, openLogin } from '../redux/actions/index'
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -10,9 +10,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fnToggleLogin: status => dispatch(toggleLogin(status)),
+    fnLoginUser: status => dispatch(loginUser(status)),
     fnRegister: () => dispatch(register()),
-    fnVerifyOtp: otp => dispatch(verifyOtp(otp))
+    fnVerifyOtp: otp => dispatch(verifyOtp(otp)),
+    fnOpenRegister: () => dispatch(openRegister()),
+    fnOpenLogin: () => dispatch(openLogin())
   }
 }
 
