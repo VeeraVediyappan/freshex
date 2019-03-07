@@ -7,6 +7,7 @@ import '../../src/App.css';
 // import InformatixModal from './modal/InformatixModal';
 import RegisterPage from '../layouts/RegisterPage';
 import LoginPage from '../layouts/LoginPage';
+import Home from '../layouts/Home';
 import PrimarySearchAppBar from './materialUI/appbar/index';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         <section className='App-body'>
         {this.props.openRegister && <RegisterPage {...this.props} />}
         {this.props.openLogin && <LoginPage {...this.props} />}
+        {this.props.loggedIn && <Home {...this.props} />}
         </section>
         
       </div>

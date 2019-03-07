@@ -3,6 +3,8 @@
     margin: auto;
     background: #DCEDC8;
     padding-bottom: 20px;
+    border-left: 1px solid #1B5E20;
+    border-right: 1px solid #1B5E20;
 }
 
 .App-header {
@@ -36,4 +38,10 @@
 
 .textField {
     width: 70%,
+}
+
+.home-div {
+    width:80%;
+    /* padding: 0px 10%;  */
+    margin: 3% auto;
 }

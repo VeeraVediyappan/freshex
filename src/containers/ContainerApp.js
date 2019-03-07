@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { loginUser, register, verifyOtp, openRegister, openLogin } from '../redux/actions/index'
+import { loginUser, register, verifyOtp, openRegister, openLogin, selectCountry } from '../redux/actions/index'
 
 const mapStateToProps = (state) => {
   console.log(state);
   //return Object.assign({}, ...state);
-  return {...state.userAuth};
+  return {...state.userAuth, ...state.business};
 };
 
 const mapDispatchToProps = dispatch => {
@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => {
     fnRegister: () => dispatch(register()),
     fnVerifyOtp: otp => dispatch(verifyOtp(otp)),
     fnOpenRegister: () => dispatch(openRegister()),
-    fnOpenLogin: () => dispatch(openLogin())
+    fnOpenLogin: () => dispatch(openLogin()),
+    fnSelectCountry: id => dispatch(selectCountry(id))
   }
 }
 

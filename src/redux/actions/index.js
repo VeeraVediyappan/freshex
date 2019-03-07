@@ -1,4 +1,4 @@
-import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN } from '../../constants';
+import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN, SELECT_COUNTRY } from '../../constants';
 
 export const loginUser = status => dispatch => {
     console.log(status);
@@ -34,3 +34,11 @@ export const openLogin = () => dispatch => {
         type: OPEN_LOGIN
     });
 };
+
+export const selectCountry = country => dispatch => {
+    console.log("selectCountry");
+    dispatch({
+        type: SELECT_COUNTRY,
+        country
+    });
+}

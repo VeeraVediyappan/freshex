@@ -5,6 +5,9 @@ const state = {
         otpVerified: false,
         openRegister: false,
         openLogin:false
+    },
+    business: {
+        selectedCountry: ''
     }
 };
 

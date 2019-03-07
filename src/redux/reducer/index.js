@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import AuthReducer  from './appReducer';
+import AuthReducer  from './authReducer';
+import AppReducer  from './appReducer';
 export default combineReducers({
     userAuth : AuthReducer,
-    
+    business : AppReducer
 });
