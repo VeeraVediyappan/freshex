@@ -8,8 +8,8 @@ import '../../src/App.css';
 const styles = theme => ({
   container: {
 
-    // display: 'flex',
-    // flexWrap: 'wrap',
+    display: 'flex',
+    flexWrap: 'wrap',
   },
   textField: {
     margin: '10px auto 10px auto;',
