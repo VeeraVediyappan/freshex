@@ -4,10 +4,11 @@ const state = {
         registered: false,
         otpVerified: false,
         openRegister: false,
-        openLogin:false
+        openLogin:false,
+        agreedTerms_conditions: false
     },
     business: {
-        selectedCountry: ''
+        selectedCategory: ''
     }
 };
 

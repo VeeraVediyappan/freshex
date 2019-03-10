@@ -1,4 +1,5 @@
-import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN, SELECT_COUNTRY } from '../../constants';
+import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN, SELECT_CATEGORY, 
+    AGREE_TERMS_CONDITIONS, LOG_USER_IN } from '../../constants';
 
 export const loginUser = status => dispatch => {
     console.log(status);
@@ -35,10 +36,23 @@ export const openLogin = () => dispatch => {
     });
 };
 
-export const selectCountry = country => dispatch => {
-    console.log("selectCountry");
+export const selectCategory = category => dispatch => {
     dispatch({
-        type: SELECT_COUNTRY,
-        country
+        type: SELECT_CATEGORY,
+        category
     });
-}
+};
+
+export const agreeTermsConditions = () => dispatch => {
+    dispatch({
+        type: AGREE_TERMS_CONDITIONS
+    });
+};
+
+export const processAndLogin = () => dispatch => {
+    dispatch({
+        type: LOG_USER_IN
+    });
+};
+
+

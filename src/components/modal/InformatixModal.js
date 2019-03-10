@@ -1,12 +1,21 @@
 import React from 'react';
-//import { withStyles } from '@material-ui/core/styles';
+import ModalBox from 'react-responsive-modal';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import NextButton from '../button/index';
+//import NextButton from '../button/index';
 
-  class Checkboxes extends React.Component {
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
+
+class InformatixModal extends React.Component {
     state = {
+      open: true,
       terms_conditions: false,
       privacy: false,
       disclaimer: false
@@ -15,11 +24,19 @@ import NextButton from '../button/index';
     handleChange = name => event => {
       this.setState({ [name]: event.target.checked });
     };
+   
+    onCloseModal = () => {
+      this.setState({ open: false });
+    };
+        handleOnClick = () => {
+          this.setState({open: false}, this.props.fnAgreeTermsConditions());
+      } 
   
     render() {
+      const { classes } = this.props;
       return (
-        <React.Fragment>
-          <h2 className='header-center-align'>About FRESHEX</h2>
+        <ModalBox open={this.state.open} onClose={this.onCloseModal} center>
+        <h2 className='header-center-align'>About FRESHEX</h2>
         <FormGroup row={false}>
         <FormControlLabel
           control={
@@ -56,13 +73,16 @@ import NextButton from '../button/index';
         />
         </FormGroup>
         <h2 className='header-center-align'>Version 1.0</h2>
-        <NextButton fnRegister = {this.props.fnRegister}>
+        <Button variant="outlined" color="inherit" className={classes.button} onClick={this.handleOnClick}>
           Next
-          </NextButton>
-        </React.Fragment>
+            </Button>
+        {/* <NextButton fnCallback = {this.props.handleOnClick}>
+          Next
+          </NextButton> */}
+        </ModalBox>
       );
     }
   }
-  
-  export default Checkboxes;
+
+  export default withStyles(styles)(InformatixModal);
 

@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import { data } from '../mock/home.json';
+import { categories } from '../mock/home.json';
 import Grid from '@material-ui/core/Grid';
 import { chunk } from 'lodash';
 
@@ -15,7 +15,7 @@ const styles = {
         flexGrow: 1,
     },
     card: {
-        minWidth: 275,
+       // minWidth: 275,
         //maxWidth: 300
     },
     bullet: {
@@ -34,11 +34,11 @@ const styles = {
 
 class Home extends Component {
     state = {
-        categories: data
+        categories
     }
 
     handleClick = id => {
-        this.props.fnSelectCountry(id);
+        this.props.fnSelectCategory(id);
     }
 
     render() {

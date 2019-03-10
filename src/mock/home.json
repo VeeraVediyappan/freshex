@@ -1,5 +1,5 @@
 {
-    "data": [
+    "categories": [
         {"id":1, "name": "MAP MARKETS"},
         {"id":2, "name": "BUYWE SELLER"},
         {"id":3, "name": "E-WALLET BANK"},
@@ -7,6 +7,10 @@
         {"id":5, "name": "TREND"},
         {"id":6, "name": "YOUR RATINGS"},
         {"id":7, "name": "MEMBER"},
-        {"id":8, "name": "TRADE"}
+        {"id":8, "name": "TRADE"},
+        {"id":9, "name": "Accounts"},
+        {"id":10, "name": "Cost Calculator"},
+        {"id":11, "name": "Settings"},
+        {"id":12, "name": "Support & Feedback"}
     ]
 }

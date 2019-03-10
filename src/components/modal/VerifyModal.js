@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-// import ModalBox from 'react-responsive-modal';
+import Button from '@material-ui/core/Button';
+import ModalBox from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField'; 
-import VerifyButton from '../button/index';
+//import VerifyButton from '../button/index';
 
 const styles = theme => ({
     container: {
   
       // display: 'flex',
       // flexWrap: 'wrap',
+    },
+    button: {
+      margin: theme.spacing.unit,
     },
     textField: {
       margin: '10px auto 10px auto;',
@@ -21,29 +25,31 @@ const styles = theme => ({
 
 class VerifyModal extends Component {
 
-    state = {
-        otp:''
-      };
-     
-    //   onOpenModal = () => {
-    //     this.setState({ open: true });
-    //   };
-     
-    //   onCloseModal = () => {
-    //     this.setState({ open: false });
-    //   };
-      handleChange = name => event => {
-        this.setState({ [name]: event.target.value });
-      };
+  state = {
+    open: true,
+    otp:''
+  };
+ 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+ 
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+
+      handleOnClick = () => {
+        this.setState({open: false}, this.props.fnVerifyOtp());
+    } 
 
   render() {
-    // const { open } = this.state;
      const { classes } = this.props;
-     console.log(this.props);
     return (
-        // <ModalBox open={open} onClose={this.onCloseModal} center>
-        <React.Fragment>
-          <h2>OTP verification</h2>
+      <ModalBox open={this.state.open} onClose={this.onCloseModal} center>
+      <h2>OTP verification</h2>
           <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="standard-name"
@@ -54,13 +60,15 @@ class VerifyModal extends Component {
             className={classes.textField}
             margin="normal"
           />
-          <VerifyButton fnCallback = {this.props.fnVerifyOtp}>
+          <Button variant="outlined" color="inherit" className={classes.button} onClick={this.handleOnClick}>
           Verify
-          </VerifyButton>
+            </Button>
+          {/* <VerifyButton fnCallback = {this.props.fnVerifyOtp}>
+          Verify
+          </VerifyButton> */}
 
           </form>
-          </React.Fragment>
-        // </ModalBox>
+      </ModalBox>
     );
   }
 }

@@ -1,11 +1,11 @@
-import { SELECT_COUNTRY } from '../../constants';
+import { SELECT_CATEGORY } from '../../constants';
 
 export default (state = {}, action) => {
     switch (action.type) {
-        case SELECT_COUNTRY:
+        case SELECT_CATEGORY:
             return {
                 ...state,
-                selectedCountry: action.country
+                selectedCategory: action.category
             }
         
         default:
