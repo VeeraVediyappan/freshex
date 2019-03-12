@@ -8,7 +8,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { categories } from '../mock/home.json';
 import Grid from '@material-ui/core/Grid';
 import { chunk } from 'lodash';
-
+import CountryModal from '../components/modal/CountryModal';
+import CommodityModal from '../components/modal/CountryModal';
 
 const styles = {
     root: {
@@ -34,21 +35,47 @@ const styles = {
 
 class Home extends Component {
     state = {
-        categories
+        categories,
+        countryModal: false,
+        commodityModal: false,
+        choosenCountry:''
     }
 
     handleClick = id => {
-        this.props.fnSelectCategory(id);
+        //this.props.fnSelectCategory(id);
+        if(id === 1) {
+            this.setState({ countryModal: true });
+        }
     }
+    
+    handleClose = country => {
+        this.setState({ countryModal: false, choosenCountry: country }, (country) => {
+            if(country) this.handleCommodityModalOpen();
+        });
+    };
+
+    handleCommodityModalOpen = () => {
+        this.setState({ commodityModal: true });
+    };
+
+    handleCommodityModalClose = (commodity) => {
+        this.setState({ commodityModal: false }, (commodity) => {
+        });
+    };
 
     render() {
 
         const { classes } = this.props;
         return (
+            <React.Fragment>
             <div className={`${classes.root}  home-div`}>
                 {this.getGrid(this.state.categories, classes)}
             </div>
-
+            <CountryModal open={this.state.countryModal} handleClose={this.handleClose}/>
+            <CommodityModal open={this.state.commodityModal} handleClose={this.handleCommodityModalClose}></CommodityModal>
+            </React.Fragment>
+            
+            
 
         );
     }
@@ -56,7 +83,6 @@ class Home extends Component {
 
     getGrid = (categories, classes) => {
         const chunks = this.getChunk(categories, classes);
-        console.log(chunks);
         return chunks.map((chunk, idx) => {
             return (<Grid container spacing={24} key={idx}>
                 {chunk.map((card, idx) => {

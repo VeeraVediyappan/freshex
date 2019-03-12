@@ -1,0 +1,10 @@
+{
+    "india": [
+        {"id":1, "name": "Indian Nuts from TamilNadu", "avgPrice": "$20"},
+        {"id":2, "name": "Indian Pepper from TamilNadu", "avgPrice": "$60"},
+        {"id":3, "name": "Indian Turmeric from TamilNadu", "avgPrice": "$40"},
+        {"id":4, "name": "Indian Fresh Onion", "avgPrice": "$35"},
+        {"id":5, "name": "Indian Semihusk Coconut", "avgPrice": "$40"},
+        {"id":6, "name": "Indian Tomatos", "avgPrice": "$15"}
+    ]
+}
