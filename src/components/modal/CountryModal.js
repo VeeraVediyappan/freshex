@@ -39,6 +39,8 @@ class DialogSelect extends React.Component {
   handleOk = () => {
       const choosenCountry = this.state.country;
       this.setState({country: ''}, () => {
+        console.log(this.state.country);
+        console.log(choosenCountry);
           this.props.handleClose(choosenCountry);
       })
       

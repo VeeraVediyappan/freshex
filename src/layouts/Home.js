@@ -9,7 +9,7 @@ import { categories } from '../mock/home.json';
 import Grid from '@material-ui/core/Grid';
 import { chunk } from 'lodash';
 import CountryModal from '../components/modal/CountryModal';
-import CommodityModal from '../components/modal/CountryModal';
+import CommodityModal from '../components/modal/CommodityModal';
 
 const styles = {
     root: {
@@ -49,17 +49,20 @@ class Home extends Component {
     }
     
     handleClose = country => {
-        this.setState({ countryModal: false, choosenCountry: country }, (country) => {
-            if(country) this.handleCommodityModalOpen();
-        });
+        //console.log(country);
+        this.setState(
+            { countryModal: false, 
+                choosenCountry: country || '', 
+                commodityModal: country ? true : false 
+            });
     };
 
     handleCommodityModalOpen = () => {
         this.setState({ commodityModal: true });
     };
 
-    handleCommodityModalClose = (commodity) => {
-        this.setState({ commodityModal: false }, (commodity) => {
+    handleCommodityModalClose = commodity => {
+        this.setState({ commodityModal: false }, () => {
         });
     };
 

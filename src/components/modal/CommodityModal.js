@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+//import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { countries } from '../../mock/countries';
+//import InputLabel from '@material-ui/core/InputLabel';
+//import Input from '@material-ui/core/Input';
+//import MenuItem from '@material-ui/core/MenuItem';
+//import FormControl from '@material-ui/core/FormControl';
+//import Select from '@material-ui/core/Select';
+//import { countries } from '../../mock/countries';
+import CommodittyTable from './CommodittyTable';
 
 const styles = theme => ({
   container: {
@@ -24,6 +25,9 @@ const styles = theme => ({
   },
   select: {
       width: '100%'
+  },
+  Dialog: {
+    minWidth: 600
   }
 });
 
@@ -55,29 +59,19 @@ class DialogSelect extends React.Component {
           open={open}
           onClose={this.handleOk}
         >
-          <DialogTitle>Choose the country</DialogTitle>
+          <DialogTitle>Indian Market Watch</DialogTitle>
           <DialogContent>
-            <form className={classes.container}>
-              <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="country-simple">country</InputLabel>
-                <Select
-                  className={classes.select}
-                  value={this.state.country}
-                  onChange={this.handleChange('country')}
-                  input={<Input id="country-simple" />}
-                >
-                  {
-                      countries.map((country, idx) => <MenuItem value={country.name.toLowerCase()} key={idx}>{country.name}</MenuItem>)
-                  }
-                </Select>
-              </FormControl>
-            </form>
+            <section className={classes.container}>
+             <CommodittyTable />
+            </section>
+            
+
           </DialogContent>
-          <DialogActions>
+          {/* <DialogActions>
             <Button onClick={this.handleOk} color="primary">
               Ok
             </Button>
-          </DialogActions>
+          </DialogActions> */}
         </Dialog>
       </div>
     );
