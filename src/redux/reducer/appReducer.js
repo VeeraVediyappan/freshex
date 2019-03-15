@@ -1,4 +1,4 @@
-import { SELECT_CATEGORY } from '../../constants';
+import { SELECT_CATEGORY, SELECT_COMMODITTY } from '../../constants';
 
 export default (state = {}, action) => {
     switch (action.type) {
@@ -7,7 +7,11 @@ export default (state = {}, action) => {
                 ...state,
                 selectedCategory: action.category
             }
-        
+        case SELECT_COMMODITTY:
+            return {
+                ...state,
+                commodity: action.commodity
+            }
         default:
             return state;
     }

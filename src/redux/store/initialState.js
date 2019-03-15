@@ -8,7 +8,8 @@ const state = {
         agreedTerms_conditions: false
     },
     business: {
-        selectedCategory: ''
+        selectedCategory: '',
+        commodity:'commodity'
     }
 };
 

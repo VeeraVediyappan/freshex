@@ -82,7 +82,7 @@ function CustomizedTable(props) {
               <CustomTableCell>{row.name}</CustomTableCell>
               <CustomTableCell>{row.avgPrice}</CustomTableCell>
               <CustomTableCell>
-              <Button color="primary">
+              <Button color="primary" onClick={() => props.handleClose(row.id)}>
               select
             </Button>
               </CustomTableCell>

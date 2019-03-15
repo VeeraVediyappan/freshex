@@ -8,8 +8,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { categories } from '../mock/home.json';
 import Grid from '@material-ui/core/Grid';
 import { chunk } from 'lodash';
-import CountryModal from '../components/modal/CountryModal';
-import CommodityModal from '../components/modal/CommodityModal';
 
 const styles = {
     root: {
@@ -62,21 +60,15 @@ class Home extends Component {
 
     handleCommodityModalClose = commodity => {
         this.setState({ commodityModal: false }, () => {
-            this.props.fnselectCommodity(commodity);
         });
     };
 
     render() {
 
-        const { classes } = this.props;
+        //const { classes } = this.props;
         return (
             <React.Fragment>
-            <div className={`${classes.root}  home-div`}>
-                {this.getGrid(this.state.categories, classes)}
-            </div>
-            <CountryModal open={this.state.countryModal} handleClose={this.handleClose}/>
-            <CommodityModal open={this.state.commodityModal} handleClose={this.handleCommodityModalClose}
-            {...this.props}></CommodityModal>
+           <h1>Table</h1>
             </React.Fragment>
             
             

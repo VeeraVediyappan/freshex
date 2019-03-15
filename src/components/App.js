@@ -9,6 +9,7 @@ import RegisterPage from '../layouts/RegisterPage';
 import LoginPage from '../layouts/LoginPage';
 import Home from '../layouts/Home';
 import PrimarySearchAppBar from './materialUI/appbar/index';
+import Commodity from '../layouts/Commodity';
 
 class App extends Component {
 
@@ -22,7 +23,8 @@ class App extends Component {
         <section className='App-body'>
         {this.props.openRegister && <RegisterPage {...this.props} />}
         {this.props.openLogin && <LoginPage {...this.props} />}
-        {this.props.loggedIn && <Home {...this.props} />}
+        {this.props.loggedIn && typeof this.props.commoditty !== 'number' && <Home {...this.props} />}
+        {this.props.loggedIn && typeof this.props.commoditty === 'number' && <Commodity {...this.props} />}
         </section>
         
       </div>

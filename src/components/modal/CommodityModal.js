@@ -62,7 +62,7 @@ class DialogSelect extends React.Component {
           <DialogTitle>Indian Market Watch</DialogTitle>
           <DialogContent>
             <section className={classes.container}>
-             <CommodittyTable />
+             <CommodittyTable handleClose={this.props.handleClose} />
             </section>
             
 

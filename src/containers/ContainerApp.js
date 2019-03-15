@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
 import { loginUser, register, verifyOtp, openRegister, openLogin, selectCategory,
-  agreeTermsConditions, processAndLogin } from '../redux/actions/index'
+  agreeTermsConditions, processAndLogin, selectCommodity } from '../redux/actions/index'
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => {
     fnOpenLogin: () => dispatch(openLogin()),
     fnSelectCategory: id => dispatch(selectCategory(id)),
     fnAgreeTermsConditions: () => dispatch(agreeTermsConditions()),
-    fnProcessAndLogin: () => dispatch(processAndLogin())
+    fnProcessAndLogin: () => dispatch(processAndLogin()),
+    fnselectCommodity: commodity => dispatch(selectCommodity(commodity))
   }
 }
 

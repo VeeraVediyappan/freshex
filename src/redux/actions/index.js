@@ -1,5 +1,5 @@
 import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN, SELECT_CATEGORY, 
-    AGREE_TERMS_CONDITIONS, LOG_USER_IN } from '../../constants';
+    AGREE_TERMS_CONDITIONS, LOG_USER_IN, SELECT_COMMODITTY } from '../../constants';
 
 export const loginUser = status => dispatch => {
     console.log(status);
@@ -52,6 +52,13 @@ export const agreeTermsConditions = () => dispatch => {
 export const processAndLogin = () => dispatch => {
     dispatch({
         type: LOG_USER_IN
+    });
+};
+
+export const selectCommodity = commodity => dispatch => {
+    dispatch({
+        type: SELECT_COMMODITTY,
+        commodity
     });
 };
 
