@@ -1,0 +1,261 @@
+{
+    "commodity": [
+        {
+            "id": 1,
+            "name": "Indian Nuts from TamilNadu",
+            "avgPrice": "$20",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 123090",
+                    "buyOrder": {
+                        "qty": 10,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 2000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 123",
+                    "buyOrder": {
+                        "qty": 60,
+                        "price": "$37.00"
+                    },
+                    "sellOrder": {
+                        "qty": 900,
+                        "price": "$189.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 123089",
+                    "buyOrder": {
+                        "qty": 89,
+                        "price": "$343.00"
+                    },
+                    "sellOrder": {
+                        "qty": 5,
+                        "price": "$50.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 12389",
+                    "buyOrder": {
+                        "qty": 10,
+                        "price": "$100.00"
+                    },
+                    "sellOrder": {
+                        "qty": 20,
+                        "price": "$98.00"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Indian Pepper from TamilNadu",
+            "avgPrice": "$60",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 563089",
+                    "buyOrder": {
+                        "qty": 80,
+                        "price": "$77.00"
+                    },
+                    "sellOrder": {
+                        "qty": 70,
+                        "price": "$555.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 847584",
+                    "buyOrder": {
+                        "qty": 9,
+                        "price": "$989.00"
+                    },
+                    "sellOrder": {
+                        "qty": 987,
+                        "price": "$9898.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 85678576",
+                    "buyOrder": {
+                        "qty": 65,
+                        "price": "$7676.00"
+                    },
+                    "sellOrder": {
+                        "qty": 909,
+                        "price": "$7676.00"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Indian Turmeric from TamilNadu",
+            "avgPrice": "$40",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 7890",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 12132",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 026447",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Indian Fresh Onion",
+            "avgPrice": "$35",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 096709",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 670679",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 5678567",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Indian Semihusk Coconut",
+            "avgPrice": "$40",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 2354354",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 3434454",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 9834763",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Indian Tomatos",
+            "avgPrice": "$15",
+            "format": "7 Kilo Box",
+            "info": [
+                {
+                    "containerNo": "MSKU 2323232",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 343445",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                },
+                {
+                    "containerNo": "MSKU 67677",
+                    "buyOrder": {
+                        "qty": 100,
+                        "price": "$17.00"
+                    },
+                    "sellOrder": {
+                        "qty": 1000,
+                        "price": "$18.00"
+                    }
+                }
+            ]
+        }
+    ]
+}

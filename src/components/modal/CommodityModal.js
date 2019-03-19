@@ -25,28 +25,25 @@ const styles = theme => ({
   },
   select: {
       width: '100%'
-  },
-  Dialog: {
-    minWidth: 600
   }
 });
 
-class DialogSelect extends React.Component {
+class CommodityModal extends React.Component {
   state = {
     country: '',
   };
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
+  // handleChange = name => event => {
+  //   this.setState({ [name]: event.target.value });
+  // };
 
-  handleOk = () => {
-      const choosenCountry = this.state.country;
-      this.setState({country: ''}, () => {
-          this.props.handleClose(choosenCountry);
-      })
+  // handleOk = () => {
+  //     const choosenCountry = this.state.country;
+  //     this.setState({country: ''}, () => {
+  //         this.props.handleClose(choosenCountry);
+  //     })
       
-  }
+  // }
 
   render() {
     const { classes, open } = this.props;
@@ -57,29 +54,23 @@ class DialogSelect extends React.Component {
           disableBackdropClick
           disableEscapeKeyDown
           open={open}
-          onClose={this.handleOk}
+          onClose={this.props.handleClose}
         >
           <DialogTitle>Indian Market Watch</DialogTitle>
           <DialogContent>
             <section className={classes.container}>
              <CommodittyTable handleClose={this.props.handleClose} />
             </section>
-            
-
           </DialogContent>
-          {/* <DialogActions>
-            <Button onClick={this.handleOk} color="primary">
-              Ok
-            </Button>
-          </DialogActions> */}
+
         </Dialog>
       </div>
     );
   }
 }
 
-DialogSelect.propTypes = {
+CommodityModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DialogSelect);
+export default withStyles(styles)(CommodityModal);

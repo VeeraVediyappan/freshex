@@ -1,115 +1,130 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { categories } from '../mock/home.json';
-import Grid from '@material-ui/core/Grid';
-import { chunk } from 'lodash';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+// eslint-disable-next-line
+import { commodity } from '../mock/commodity.json';
+import BuyModal from '../components/modal/BuyModal';
+import SellModal from '../components/modal/SellModal';
+import ChartModal from '../components/modal/ChartModal';
 
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    card: {
-       // minWidth: 275,
-        //maxWidth: 300
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-};
-
-
-class Home extends Component {
-    state = {
-        categories,
-        countryModal: false,
-        commodityModal: false,
-        choosenCountry:''
-    }
-
-    handleClick = id => {
-        //this.props.fnSelectCategory(id);
-        if(id === 1) {
-            this.setState({ countryModal: true });
-        }
-    }
-    
-    handleClose = country => {
-        this.setState(
-            { countryModal: false, 
-                choosenCountry: country || '', 
-                commodityModal: country ? true : false 
-            });
-    };
-
-    handleCommodityModalOpen = () => {
-        this.setState({ commodityModal: true });
-    };
-
-    handleCommodityModalClose = commodity => {
-        this.setState({ commodityModal: false }, () => {
-        });
-    };
-
-    render() {
-
-        //const { classes } = this.props;
-        return (
-            <React.Fragment>
-           <h1>Table</h1>
-            </React.Fragment>
-            
-            
-
-        );
-    }
+const styles = theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 700,
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
 
 
-    getGrid = (categories, classes) => {
-        const chunks = this.getChunk(categories, classes);
-        return chunks.map((chunk, idx) => {
-            return (<Grid container spacing={24} key={idx}>
-                {chunk.map((card, idx) => {
-                    return (<Grid item xs key={idx}>
-                        {card}
-                    </Grid>)
-                })}
-            </Grid>)
-        });
-    }
+class Commodity extends Component {
+   state = {
+     buyModal: false,
+     sellModal: false,
+     chartModal: false,
+     commodityDetail: commodity.filter(com => com.id === this.props.commodity)[0]
+   }
 
-    getChunk = (categories, classes) => {
-        const cards = categories.map((category, id) => {
-            return (
-                <Card key={category.id} className={classes.card}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
-                            {category.name}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small" onClick={() => this.handleClick(category.id)}>Go & See More</Button>
-                    </CardActions>
-                </Card>
-            )
-        });
+   handleClick = () => e => { this.setState({buyModal : true }) }
 
-        return chunk(cards, 3);
-    }
+   handleCancel = () => { this.setState({buyModal : false, sellModal: false, chartModal: false }) }
 
+  render() {
+    // eslint-disable-next-line
+    const { classes } = this.props;
+    const commodityData = this.state.commodityDetail;
+    console.log(commodityData);
+    console.log(this.state.buyModal);
+    return (
+      <React.Fragment>
+      <Paper className={classes.root}>
+        <h6>{commodityData.name}</h6>
+        <h6>Packing format : {commodityData.format}</h6>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell colSpan={1} align="left">CONTAINER NO</TableCell>
+              <TableCell colSpan={2} align="center">BUY ORDER</TableCell>
+              <TableCell colSpan={2} align="center">SELL ORDER</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell align="left">PARKING DETAILS</TableCell>
+              <TableCell align="center">QTY</TableCell>
+              <TableCell align="center">PRICE</TableCell>
+              <TableCell align="center">QTY</TableCell>
+              <TableCell align="center">PRICE</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {commodityData.info.map((info, idx) => (
+              <TableRow key={idx}>
+                <TableCell component="th" scope="info">
+                  {info.containerNo}
+                </TableCell>
+                <TableCell align="center">{info.buyOrder.qty}</TableCell>
+                <TableCell align="center">{info.buyOrder.price}</TableCell>
+                <TableCell align="center">{info.sellOrder.qty}</TableCell>
+                <TableCell align="center">{info.sellOrder.price}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
 
+      </Paper>
+
+<section>
+          <Button variant="outlined" color="inherit" className={classes.button} 
+          onClick={() => {this.setState({chartModal: true})}} >
+            Chart
+                  </Button>
+          <Button variant="outlined" name="buyModal" color="inherit" className={classes.button}
+           onClick={() => {this.setState({buyModal: true})}} >
+            Buy
+                  </Button>
+          <Button variant="outlined" name="sellModal" color="inherit" className={classes.button} 
+          onClick={() => {this.setState({sellModal: true})}} > Sell
+                  </Button>
+          <Button variant="outlined" color="inherit" className={classes.button} onClick={this.props.fnOpenLogin} >
+            Your order
+                  </Button>
+        </section>
+
+        <section>
+          {this.state.buyModal && 
+          <BuyModal open={this.state.buyModal} commodity={this.state.commodityDetail} 
+          close={this.handleCancel}></BuyModal>
+          }
+          {this.state.sellModal && 
+          <SellModal open={this.state.sellModal} commodity={this.state.commodityDetail} 
+          close={this.handleCancel}></SellModal>
+          }
+          {
+            this.state.chartModal &&
+            <ChartModal open={this.state.chartModal} commodity={this.state.commodityDetail} 
+          close={this.handleCancel}></ChartModal>
+          }
+        </section>
+        
+        
+        </React.Fragment>
+    );
+  }
 }
 
-export default withStyles(styles)(Home);
+Commodity.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Commodity);

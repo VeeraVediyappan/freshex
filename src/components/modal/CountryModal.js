@@ -27,7 +27,7 @@ const styles = theme => ({
   }
 });
 
-class DialogSelect extends React.Component {
+class CountryModal extends React.Component {
   state = {
     country: '',
   };
@@ -84,8 +84,8 @@ class DialogSelect extends React.Component {
   }
 }
 
-DialogSelect.propTypes = {
+CountryModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DialogSelect);
+export default withStyles(styles)(CountryModal);

@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
 import { loginUser, register, verifyOtp, openRegister, openLogin, selectCategory,
-  agreeTermsConditions, processAndLogin, selectCommodity } from '../redux/actions/index'
+  agreeTermsConditions, processAndLogin, selectCommodity } from '../redux/actions/index';
+// import { withRouter } from 'react-router-dom'  
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -23,9 +24,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+// const ContainerApp = withRouter(connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+//   )(App))
+
 const ContainerApp = connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App)
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
   
   export default ContainerApp;

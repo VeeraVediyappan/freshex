@@ -61,8 +61,10 @@ class Home extends Component {
     };
 
     handleCommodityModalClose = commodity => {
-        this.setState({ commodityModal: false }, () => {
-            this.props.fnselectCommodity(commodity);
+        this.setState({ commodityModal: false,
+         }, () => {
+             console.log(commodity);
+            if(commodity) { this.props.fnselectCommodity(commodity); }
         });
     };
 
@@ -75,8 +77,8 @@ class Home extends Component {
                 {this.getGrid(this.state.categories, classes)}
             </div>
             <CountryModal open={this.state.countryModal} handleClose={this.handleClose}/>
-            <CommodityModal open={this.state.commodityModal} handleClose={this.handleCommodityModalClose}
-            {...this.props}></CommodityModal>
+            <CommodityModal open={this.state.commodityModal}
+             handleClose={this.handleCommodityModalClose}></CommodityModal>
             </React.Fragment>
             
             
