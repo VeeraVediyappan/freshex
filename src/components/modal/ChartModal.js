@@ -6,12 +6,36 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
-
+const borderColors = ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"];
 
 class ChartModal extends Component {
 
+    getLabel = commodity => {
+        const labels = [];
+        for(const com of commodity.info) {
+            for(const label of com.chartData.labels) {
+                if(! labels.includes(label)) labels.push(label);
+            }
+        }
+        return labels;
+    }
+
+    getDataSets = commodity => {
+        const dataSets = commodity.info.map((info, idx) => {
+            return {
+                label: info.containerNo,
+                data: info.chartData.data,
+                borderColor: borderColors[idx],
+                fill: false
+            }
+        });
+        console.log(dataSets);
+        return dataSets;
+    }
+    
     render() {
-        const { open } = this.props;
+        const { open, commodity } = this.props;
+
         return(
             <section>
              <Dialog
@@ -25,24 +49,19 @@ class ChartModal extends Component {
                     <Line
 	         data={
                 {
-                    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'], 
-                    datasets: [
-                        {
-                            label: "Price",
-                            // fillColor: "rgba(220,220,220,0.2)",
-                            // strokeColor: "rgba(220,220,220,1)",
-                            // pointColor: "rgba(220,220,220,1)",
-                            // pointStrokeColor: "#fff",
-                            // pointHighlightFill: "#fff",
-                            // pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [22, 43, 35, 17, 131, 113]
+                    labels: this.getLabel(commodity), 
+                    datasets: this.getDataSets(commodity),
+                    options: {
+                        title: {
+                          display: true,
+                          text: 'Container details'
                         }
-                    ]
-            }
+                      }
+                }
         
         }
-	         width={300}
-	         height={150}
+	         width={1200}
+	         height={650}
              />
                     </DialogContent>
                     <DialogActions>

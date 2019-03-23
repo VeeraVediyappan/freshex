@@ -15,6 +15,10 @@
                     "sellOrder": {
                         "qty": 2000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [22, 43, 35, 17, 131, 113]
                     }
                 },
                 {
@@ -26,6 +30,10 @@
                     "sellOrder": {
                         "qty": 900,
                         "price": "$189.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -37,6 +45,10 @@
                     "sellOrder": {
                         "qty": 5,
                         "price": "$50.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -48,6 +60,10 @@
                     "sellOrder": {
                         "qty": 20,
                         "price": "$98.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
@@ -67,6 +83,10 @@
                     "sellOrder": {
                         "qty": 70,
                         "price": "$555.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -78,6 +98,10 @@
                     "sellOrder": {
                         "qty": 987,
                         "price": "$9898.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -89,6 +113,10 @@
                     "sellOrder": {
                         "qty": 909,
                         "price": "$7676.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
@@ -108,6 +136,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -119,6 +151,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -130,6 +166,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
@@ -149,6 +189,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -160,6 +204,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -171,6 +219,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
@@ -190,6 +242,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -201,6 +257,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -212,6 +272,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
@@ -231,6 +295,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [67, 23, 95, 7, 31, 83]
                     }
                 },
                 {
@@ -242,6 +310,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [77, 3, 45, 87, 20, 83]
                     }
                 },
                 {
@@ -253,6 +325,10 @@
                     "sellOrder": {
                         "qty": 1000,
                         "price": "$18.00"
+                    },
+                    "chartData": {
+                        "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                        "data": [90, 115, 86, 47, 90, 63]
                     }
                 }
             ]
