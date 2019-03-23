@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 //import { countries } from '../../mock/countries';
 import TextField from '@material-ui/core/TextField';
+import Divider from '@material-ui/core/Divider';
 
 
 const styles = theme => ({
@@ -47,11 +48,28 @@ const styles = theme => ({
     }
 });
 
+let user = '';
+if(window.localStorage){
+    user = JSON.parse(window.localStorage.getItem("user"));
+}else {
+    user = {
+        name : "Kari Kaalan",
+        location: {
+            state: "Tamil Nadu",
+            place: "Thanjai"
+        },
+        buyOrders: [],
+        sellOrders: []
+      }
+}
+
+
 class BuyModal extends React.Component {
     state = {
         containerNo: '',
         quantity: '',
-        price: ''
+        price: '',
+        showBuyInfo: false
     };
 
     handleChange = name => event => {
@@ -62,21 +80,54 @@ class BuyModal extends React.Component {
         const container = this.props.commodity.info.find(info => {
             return info.containerNo === event.target.value.toUpperCase().toString();
         })
-        
+
         this.setState({
             [name]: event.target.value,
             quantity: container.buyOrder.qty,
-            price:  container.buyOrder.price
+            price: container.buyOrder.price
         });
-    }; 
+    };
 
     handleClear = () => {
         this.setState({
-            containerNo:'',
+            containerNo: '',
             quantity: '',
-            price:  ''
+            price: ''
         });
 
+    }
+
+    handleConfirm = () => {
+        if (this.validator()) {
+            if (window.localStorage) {
+                user.buyOrders.push({
+                    containerNo: this.state.containerNo,
+                    quantity: this.state.quantity,
+                    price: this.state.price,
+                    orderId: 'bu01111'
+                });
+                window.localStorage.setItem("user", JSON.stringify(user));
+            }
+
+            this.setState({ showBuyInfo: true });
+        } else {
+            alert("Choose all the details");
+        }
+    }
+
+    validator = () => {
+        console.log(this.state);
+        // for (const key in this.state) {
+        //    // console.log(this.state[key]);
+        //     if (( this.state[key] === '' || this.state[key] === null ) && !key === 'showBuyInfo' ) {
+        //         console.log(this.state[key]);
+        //         return false;
+        //     }
+        // }
+        if(this.state.containerNo === "" || this.state.quantity === "" || this.state.price === "" ) {
+            return false;
+        }
+        return true;
     }
 
     render() {
@@ -92,52 +143,74 @@ class BuyModal extends React.Component {
                 >
                     <DialogTitle>BUY</DialogTitle>
                     <DialogContent>
-                        <form className={classes.container}>
-                            <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="container-simple">Choose container No</InputLabel>
-                                <Select
-                                    className={classes.select}
-                                    value={this.state.containerNo}
-                                    onChange={this.handleChangeSelect('containerNo')}
-                                    input={<Input id="container-simple" />}
-                                >
-                                    {
-                                        this.props.commodity.info.map((info, idx) => <MenuItem value={info.containerNo.toLowerCase()} key={idx}>{info.containerNo}</MenuItem>)
-                                    }
-                                </Select>
-                                <TextField
-                                    id="quantity"
-                                    label="quantity"
-                                    className={classes.textField}
-                                    value={this.state.quantity}
-                                    onChange={this.handleChange('quantity')}
-                                    margin="normal"
-                                />
+                        {this.state.showBuyInfo ?
+                            <React.Fragment>
+                                <h2> Your have ordered below to buy</h2>
+                                <Divider />
+                                <p>Commoditty name : {this.props.commodity.name}</p>
+                                <p>Format : {this.props.commodity.format}</p>
+                                <p>Container Number : {this.state.containerNo} </p>
+                                <p>Quantity : {this.state.quantity} </p>
+                                <p>Price : {this.state.price} </p>
+                            </React.Fragment>
+                            :
+                            <form className={classes.container}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel htmlFor="container-simple">Choose container No</InputLabel>
+                                    <Select
+                                        className={classes.select}
+                                        value={this.state.containerNo}
+                                        onChange={this.handleChangeSelect('containerNo')}
+                                        input={<Input id="container-simple" />}
+                                    >
+                                        {
+                                            this.props.commodity.info.map((info, idx) => <MenuItem value={info.containerNo.toLowerCase()} key={idx}>{info.containerNo}</MenuItem>)
+                                        }
+                                    </Select>
+                                    <TextField
+                                        id="quantity"
+                                        label="quantity"
+                                        className={classes.textField}
+                                        value={this.state.quantity}
+                                        onChange={this.handleChange('quantity')}
+                                        margin="normal"
+                                    />
 
-                                <TextField
-                                    id="price"
-                                    label="price"
-                                    className={classes.textField}
-                                    value={this.state.price}
-                                    onChange={this.handleChange('price')}
-                                    margin="normal"
-                                />
-                            </FormControl>
-                        </form>
+                                    <TextField
+                                        id="price"
+                                        label="price"
+                                        className={classes.textField}
+                                        value={this.state.price}
+                                        onChange={this.handleChange('price')}
+                                        margin="normal"
+                                    />
+                                </FormControl>
+                            </form>}
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClear} className={classes.clearButton} variant="contained" type='reset' >
-                            Clear
+                        {this.state.showBuyInfo ?
+                            <Button onClick={this.props.close} variant="contained" className={classes.confirmButton}>
+                                Ok
+    </Button>
+                            :
+                            <React.Fragment>
+                                <Button onClick={this.handleClear
+                                } className={classes.clearButton} variant="contained" type='reset' >
+                                    Clear
             </Button>
-                        <Button onClick={this.props.close} variant="contained" color="secondary">
-                            Cancel
+                                <Button onClick={this.props.close} variant="contained" color="secondary">
+                                    Cancel
             </Button>
-                        <Button onClick={this.handleOk} variant="contained" className={classes.confirmButton}>
-                            Confirm
+                                <Button onClick={this.handleConfirm} variant="contained" className={classes.confirmButton}>
+                                    Confirm
             </Button>
+                            </React.Fragment>
+
+                        }
+
                     </DialogActions>
 
-<DialogTitle>VAT CHARGABLE EXTRA </DialogTitle>
+                    <DialogTitle>VAT CHARGABLE EXTRA </DialogTitle>
 
                 </Dialog>
             </div>

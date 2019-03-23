@@ -13,6 +13,7 @@ import { commodity } from '../mock/commodity.json';
 import BuyModal from '../components/modal/BuyModal';
 import SellModal from '../components/modal/SellModal';
 import ChartModal from '../components/modal/ChartModal';
+import OrderSummaryModal from '../components/modal/OrderSummaryModal';
 
 const styles = theme => ({
   root: {
@@ -28,12 +29,22 @@ const styles = theme => ({
   },
 });
 
+window.localStorage.setItem("user", JSON.stringify({
+  name : "Kari Kaalan",
+  location: {
+      state: "Tamil Nadu",
+      place: "Thanjai"
+  },
+  buyOrders: [],
+  sellOrders: []
+}));
 
 class Commodity extends Component {
    state = {
      buyModal: false,
      sellModal: false,
      chartModal: false,
+     summaryModal: false,
      commodityDetail: commodity.filter(com => com.id === this.props.commodity)[0]
    }
 
@@ -45,8 +56,7 @@ class Commodity extends Component {
     // eslint-disable-next-line
     const { classes } = this.props;
     const commodityData = this.state.commodityDetail;
-    console.log(commodityData);
-    console.log(this.state.buyModal);
+
     return (
       <React.Fragment>
       <Paper className={classes.root}>
@@ -96,7 +106,8 @@ class Commodity extends Component {
           <Button variant="outlined" name="sellModal" color="inherit" className={classes.button} 
           onClick={() => {this.setState({sellModal: true})}} > Sell
                   </Button>
-          <Button variant="outlined" color="inherit" className={classes.button} onClick={this.props.fnOpenLogin} >
+          <Button variant="outlined" name="summaryModal" color="inherit" className={classes.button} 
+          onClick={() => {this.setState({summaryModal: true})}} >
             Your order
                   </Button>
         </section>
@@ -114,6 +125,9 @@ class Commodity extends Component {
             this.state.chartModal &&
             <ChartModal open={this.state.chartModal} commodity={this.state.commodityDetail} 
           close={this.handleCancel}></ChartModal>
+          }
+          { this.state.summaryModal &&
+            <OrderSummaryModal open={this.state.summaryModal} />
           }
         </section>
         
