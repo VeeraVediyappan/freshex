@@ -3,80 +3,94 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import FacebookLogin from 'react-facebook-login';
+import { GoogleLogin } from 'react-google-login';
 
 const styles = theme => ({
-    root: {
-      ...theme.mixins.gutters(),
-      paddingTop: theme.spacing.unit * 2,
-      paddingBottom: theme.spacing.unit * 2,
-      marginTop: theme.spacing.unit * 5,
-      marginBottom: theme.spacing.unit * 5,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      //backgroundColor:  '#DCEDC8',
-      width:'60%'
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    //backgroundColor:  '#DCEDC8',
+    width: '60%'
 
-    },
-    button: {
-        margin: theme.spacing.unit,
-      },
-      textField: {
-        margin: '10px auto 10px auto;',
-        width: '80%',
-      },
-  });
+  },
+  button: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit
+  },
+  textField: {
+    margin: '10px auto 10px auto;',
+    width: '80%',
+  },
+});
 
 class LoginPage extends Component {
-    state = {
-        username: '',
-        password: ''
+  state = {
+    username: '',
+    password: ''
+  }
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+
+  handleLogin = () => {
+    if (this.state.username === 'test' && this.state.password === 'test') {
+      this.props.fnLoginUser();
     }
+  }
 
-    handleChange = name => event => {
-        this.setState({ [name]: event.target.value });
-      };
-    
-    handleLogin = () => {
-        if(this.state.username === 'test' && this.state.password === 'test') {
-            this.props.fnLoginUser();
-        }
-    }  
+  responseFacebook = (response) => {
+    console.log(response);
+  }
 
-    render() {
-        const { classes } = this.props;
-        return (
-            <React.Fragment>
-                <Paper className={classes.root} elevation={1}>
-                <form className={classes.container} noValidate autoComplete="off">
-                <TextField
-            id="standard-username"
-            label="Username"
-            className={classes.textField}
-            value={this.state.username}
-            onChange={this.handleChange('username')}
-            margin="normal"
-          />
+  responseGoogle = (response) => {
+    console.log(response);
+  }
+  fbComponentClicked = () => console.log('facebook button clicked');
 
-<TextField
-          id="standard-password-input"
-          label="Password"
-          className={classes.textField}
-          type="password"
-          autoComplete="current-password"
-          value={this.state.password}
-          onChange={this.handleChange('password')}
-          margin="normal"
-        />
+  render() {
+    const { classes } = this.props;
+    return (
+      <React.Fragment>
+        <Paper className={classes.root} elevation={1}>
+          <form className={classes.container} noValidate autoComplete="off">
+            <TextField
+              id="standard-username"
+              label="Username"
+              className={classes.textField}
+              value={this.state.username}
+              onChange={this.handleChange('username')}
+              margin="normal"
+            />
 
-<Button variant="outlined" color="inherit" className={classes.button} onClick={this.handleLogin}>
-              {this.props.loggedIn ? 'Log Out' : 'Log In'}
-            </Button>
-                </form>
-                </Paper>
-                
-            </React.Fragment>
-        );
-    }
+            <TextField
+              id="standard-password-input"
+              label="Password"
+              className={classes.textField}
+              type="password"
+              autoComplete="current-password"
+              value={this.state.password}
+              onChange={this.handleChange('password')}
+              margin="normal"
+            />
+            <div>
+              <Button variant="outlined" color="inherit" className={classes.button} onClick={this.handleLogin}>
+                {this.props.loggedIn ? 'Log Out' : 'Log In'}
+              </Button>
+            </div>
+                 
+          </form>
+        </Paper>
+
+      </React.Fragment>
+    );
+  }
 }
 
 export default withStyles(styles)(LoginPage);
