@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     fnLoginUser: status => dispatch(loginUser(status)),
-    fnRegister: () => dispatch(register()),
+    fnRegister: registerObj => dispatch(register(registerObj)),
     fnVerifyOtp: otp => dispatch(verifyOtp(otp)),
     fnOpenRegister: () => dispatch(openRegister()),
     fnOpenLogin: () => dispatch(openLogin()),

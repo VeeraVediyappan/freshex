@@ -1,3 +1,4 @@
+//import fetch from 'fetch';
 import { TOGGLE_LOGIN_STATUS, REGISTER_USER, VERIFY_OTP, OPEN_REGISTER, OPEN_LOGIN, SELECT_CATEGORY, 
     AGREE_TERMS_CONDITIONS, LOG_USER_IN, SELECT_COMMODITTY } from '../../constants';
 
@@ -9,7 +10,25 @@ export const loginUser = status => dispatch => {
     });
 };
 
-export const register = () => dispatch => {
+export const register = registerObj => dispatch => {
+    console.log('registerObj', registerObj);
+    fetch('http://ec2-3-89-151-42.compute-1.amazonaws.com:5002/api/admin/register', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        //credentials: "include", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        //redirect: "follow", // manual, *follow, error
+        //referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(registerObj), // body data type must match "Content-Type" header
+    })
+    .then(response => response.json())
+    .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+    .catch(error => console.error(error));
+
     dispatch({
         type: REGISTER_USER
     });

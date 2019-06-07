@@ -45,3 +45,32 @@
     /* padding: 0px 10%;  */
     margin: 3% auto;
 }
+
+.admin-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.admin-section #left-side, .admin-section #right-side {
+    width:20%;
+}
+
+.admin-section #main-div {
+width: 60%;
+}
+
+/* Admin style */
+
+.admin-app {
+    width: 90%;
+    margin: auto;
+    /* margin: auto;
+    background: #DCEDC8;
+    padding-bottom: 20px;
+    border-left: 1px solid #1B5E20;
+    border-right: 1px solid #1B5E20; */
+}
+
+.admin-header {
+    padding: 10px 15px;
+}

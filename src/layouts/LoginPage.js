@@ -3,8 +3,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
-import FacebookLogin from 'react-facebook-login';
-import { GoogleLogin } from 'react-google-login';
+// import FacebookLogin from 'react-facebook-login';
+// import { GoogleLogin } from 'react-google-login';
 
 const styles = theme => ({
   root: {

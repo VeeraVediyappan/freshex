@@ -4,14 +4,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-//import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-//import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -20,6 +18,15 @@ import Button from '@material-ui/core/Button';
 
 import RegisterButton from '../../button/index';
 
+//search comps
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+
+
+import { FormControl, Select, InputLabel, Input } from '@material-ui/core';
+// import Select from '@material-ui/core/Select';
+// import InputLabel from '@material-ui/core/InputLabel';
+import { countries } from '../../../mock/countries';
 
 const styles = theme => ({
   root: {
@@ -95,12 +102,30 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 250,
+  },
+  select: {
+      width: '100%',
+      color: '#fff'
+
+  }
 });
 
 class PrimarySearchAppBar extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
+    country: ''
+  };
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
   };
 
   handleProfileMenuOpen = event => {
@@ -179,10 +204,15 @@ class PrimarySearchAppBar extends React.Component {
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+
+            {!this.props.loggedIn &&
+              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
               FRESHEX
-            </Typography>
-            {/* {this.props.loggedIn && 
+              </Typography>
+            }
+
+            {/* search bar */}
+            {this.props.loggedIn && this.props.userType === 'admin' &&
             <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -195,7 +225,26 @@ class PrimarySearchAppBar extends React.Component {
               }}
             />
           </div>
-            } */}
+            }
+
+            {/* country select box */}
+            {this.props.loggedIn && this.props.userType === 'admin' &&
+              <form className={classes.container}>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="country-simple">country</InputLabel>
+                <Select
+                  className={classes.select}
+                  value={this.state.country}
+                  onChange={this.handleChange('country')}
+                  input={<Input id="country-simple" />}
+                >
+                  {
+                      countries.map((country, idx) => <MenuItem value={country.name.toLowerCase()} key={idx}>{country.name}</MenuItem>)
+                  }
+                </Select>
+              </FormControl>
+            </form>
+            }
             
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>

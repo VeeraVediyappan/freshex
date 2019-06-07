@@ -1,0 +1,71 @@
+{
+    "commodity":{
+        "id": 1,
+        "name": "Indian Nuts from TamilNadu",
+        "avgPrice": "$20",
+        "format": "7 Kilo Box",
+        "info": [
+            {
+                "containerNo": "MSKU 123090",
+                "buyOrder": {
+                    "qty": 10,
+                    "price": "$17.00"
+                },
+                "sellOrder": {
+                    "qty": 2000,
+                    "price": "$18.00"
+                },
+                "chartData": {
+                    "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                    "data": [22, 43, 35, 17, 131, 113]
+                }
+            },
+            {
+                "containerNo": "MSKU 123",
+                "buyOrder": {
+                    "qty": 60,
+                    "price": "$37.00"
+                },
+                "sellOrder": {
+                    "qty": 900,
+                    "price": "$189.00"
+                },
+                "chartData": {
+                    "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                    "data": [67, 23, 95, 7, 31, 83]
+                }
+            },
+            {
+                "containerNo": "MSKU 123089",
+                "buyOrder": {
+                    "qty": 89,
+                    "price": "$343.00"
+                },
+                "sellOrder": {
+                    "qty": 5,
+                    "price": "$50.00"
+                },
+                "chartData": {
+                    "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                    "data": [77, 3, 45, 87, 20, 83]
+                }
+            },
+            {
+                "containerNo": "MSKU 12389",
+                "buyOrder": {
+                    "qty": 10,
+                    "price": "$100.00"
+                },
+                "sellOrder": {
+                    "qty": 20,
+                    "price": "$98.00"
+                },
+                "chartData": {
+                    "labels": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
+                    "data": [90, 115, 86, 47, 90, 63]
+                }
+            }
+        ]
+    }
+
+}

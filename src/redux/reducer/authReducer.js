@@ -8,7 +8,8 @@ export default (state = {}, action) => {
             return {
                 ...state,
                 loggedIn : true,
-                openLogin: false
+                openLogin: false,
+                userType: 'admin'
             }
         case REGISTER_USER:  
             return {

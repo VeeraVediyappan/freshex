@@ -8,6 +8,9 @@ import '../../src/App.css';
 import RegisterPage from '../layouts/RegisterPage';
 import LoginPage from '../layouts/LoginPage';
 import Home from '../layouts/Home';
+//import Admin from '../layouts/admin/Admin';
+//import Admin from '../layouts/admin/AdminNew';
+import Admin from '../layouts/admin/AdHome';
 import PrimarySearchAppBar from './materialUI/appbar/index';
 import Commodity from '../layouts/Commodity';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -18,10 +21,13 @@ class App extends Component {
   render() {
     console.log(this.props, "THIS.PROPS");
     return (
-      <div className="App">
-        <header className="App-header">
-          <PrimarySearchAppBar {...this.props} />
-        </header>
+      <div className={this.props.userType !== 'admin' ? "App" : "admin-app"}>
+        { this.props.userType !== 'admin' &&
+          <header className="App-header">
+            <PrimarySearchAppBar {...this.props} />
+          </header>
+        }
+
         <section className='App-body'>
           {/* <BrowserRouter>
             <Switch>
@@ -33,11 +39,12 @@ class App extends Component {
             </Switch>
           </BrowserRouter> */}
 
-          
-        {this.props.openRegister && <RegisterPage {...this.props} />}
-        {this.props.openLogin && <LoginPage {...this.props} />}
-        {this.props.loggedIn && typeof this.props.commodity !== 'number' && <Home {...this.props} />}
-        {this.props.loggedIn && typeof this.props.commodity === 'number' && <Commodity {...this.props} />}
+
+          {this.props.openRegister && <RegisterPage {...this.props} />}
+          {this.props.openLogin && <LoginPage {...this.props} />}
+          {this.props.loggedIn && this.props.userType === 'admin' && <Admin {...this.props} />}
+          {this.props.loggedIn && this.props.userType !== 'admin' && typeof this.props.commodity !== 'number' && <Home {...this.props} />}
+          {this.props.loggedIn && this.props.userType !== 'admin' && typeof this.props.commodity === 'number' && <Commodity {...this.props} />}
         </section>
 
       </div>

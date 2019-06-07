@@ -1,0 +1,12 @@
+{
+    "features": [
+        {"id":1, "name": "Add User", "key": "addUser"},
+        {"id":2, "name": "Add Commodity", "key": "addCommodity"},
+        {"id":3, "name": "Buyer", "key": "buyer"},
+        {"id":4, "name": "Seller", "key": "seller"},
+        {"id":5, "name": "View Commodity", "key": "viewCommodity"},
+        {"id":6, "name": "Daily BuySell", "key": "dailyBuySell"},
+        {"id":7, "name": "Chart", "key": "chart"},
+        {"id":8, "name": "Average Market", "key": "avgMarket"}
+    ]
+}

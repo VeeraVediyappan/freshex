@@ -5,7 +5,8 @@ const state = {
         otpVerified: false,
         openRegister: false,
         openLogin:false,
-        agreedTerms_conditions: false
+        agreedTerms_conditions: false,
+        userType: ''
     },
     business: {
         selectedCategory: '',

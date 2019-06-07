@@ -1,16 +1,7 @@
 {
     "countries": [
-        {"id":1, "name": "INDIA"},
-        {"id":2, "name": "DUBAI"},
-        {"id":3, "name": "MALAYSIA"},
-        {"id":4, "name": "SRI LANKA"},
-        {"id":5, "name": "VIETNAM"},
-        {"id":6, "name": "PHILIPHINES"},
-        {"id":7, "name": "AUSTRALIA"},
-        {"id":8, "name": "NEW ZELAND"},
-        {"id":9, "name": "BRAZIL"},
-        {"id":10, "name": "ARGENTINA"},
-        {"id":11, "name": "PERU"},
-        {"id":12, "name": "CARIBIA"}
+        {"id":1, "name": "Vietnam"},
+        {"id":2, "name": "Malasiya"},
+        {"id":3, "name": "Dubai"}
     ]
 }
