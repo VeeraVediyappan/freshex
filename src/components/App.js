@@ -8,10 +8,11 @@ import '../../src/App.css';
 import RegisterPage from '../layouts/RegisterPage';
 import LoginPage from '../layouts/LoginPage';
 import Home from '../layouts/Home';
-//import Admin from '../layouts/admin/Admin';
+// import Admin from '../layouts/admin/Admin'; // has last layout
 //import Admin from '../layouts/admin/AdminNew';
 import Admin from '../layouts/admin/AdHome';
 import PrimarySearchAppBar from './materialUI/appbar/index';
+import AdminAppBar from './materialUI/appbar/AdminAppBar';
 import Commodity from '../layouts/Commodity';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import { Switch, Route } from 'react-router-dom';
@@ -22,10 +23,15 @@ class App extends Component {
     console.log(this.props, "THIS.PROPS");
     return (
       <div className={this.props.userType !== 'admin' ? "App" : "admin-app"}>
-        { this.props.userType !== 'admin' &&
+        {this.props.userType !== 'admin' &&
           <header className="App-header">
             <PrimarySearchAppBar {...this.props} />
           </header>
+        }
+        {this.props.userType === 'admin' &&
+          // <header className="admin-header">
+          <AdminAppBar {...this.props} />
+          // </header>
         }
 
         <section className='App-body'>

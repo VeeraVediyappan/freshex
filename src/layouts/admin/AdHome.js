@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 //import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
+//import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 // import List from '@material-ui/core/List';
@@ -18,7 +18,18 @@ import Typography from '@material-ui/core/Typography';
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
 
-import AdminAppBar from '../../components/materialUI/appbar/adminAppBar'
+//import AdminAppBar from '../../components/materialUI/appbar/AdminAppBar'
+
+import { Card, CardActions, CardContent, CardHeader } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+// import CardActions from '@material-ui/core/CardActions';
+// import CardContent from '@material-ui/core/CardContent';
+
+import Chart from '../../components/modal/admin/Chart';
+import Buyer from '../../components/modal/admin/Buyer2';
+import Seller from '../../components/modal/admin/Seller2';
+
+import Grid from '@material-ui/core/Grid';
 
 const drawerWidth = 240;
 
@@ -59,6 +70,7 @@ const useStyles = makeStyles(theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    minHeight: '80px'
   },
   content: {
     flexGrow: 1,
@@ -75,13 +87,15 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+  }, card: {
+    minWidth: 275,
+    maxWidth: '100%',
+    borderRadius: '0px'
   },
 }));
 
 const AdHome = (props) => {
   const classes = useStyles();
-  //const theme = useTheme();
-  //const [open, setOpen] = React.useState(false);
   const [open] = React.useState(false);
 
   // function handleDrawerOpen() {
@@ -93,99 +107,77 @@ const AdHome = (props) => {
   // }
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      {/* <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer> */}
 
-<header className="admin-header">
-            <AdminAppBar {...props} />
-          </header>
+    <main id='admin_main'>
+      <div className={classes.drawerHeader} />
+      {/* <Typography paragraph>
+        Eden going all the way
+        </Typography> */}
+
+<Grid container spacing={2} key={'first-grid'}>
+
+<Grid item sm={6} key={'buyer-item'} >
+<Card key={"buyer-card"} className={classes.card}>
+        <CardHeader title={`Buyer Table - ${'Indian Market Watch'}`} />
+        <CardContent>
+          <Buyer />
+        </CardContent>
+        <CardActions>
+          <Button size="small"
+            onClick={() => this.handleClick(1, 1)}>Click here</Button>
+        </CardActions>
+      </Card>
+</Grid>
+
+<Grid item sm={6} key={'seller-item'} >
+<Card key={"seller-card"} className={classes.card}>
+        <CardHeader title={`Seller Table - ${'Indian Market Watch'}`} />
+        <CardContent>
+          <Seller />
+        </CardContent>
+        <CardActions>
+          <Button size="small"
+            onClick={() => this.handleClick(1, 1)}>Click here</Button>
+        </CardActions>
+      </Card>
+</Grid>
+
+</Grid>
 
       
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </main>
-    </div>
+<br />
+
+
+
+
+      <Card key={"2"} className={classes.card}>
+        <CardHeader
+          // avatar={
+          //   <Avatar aria-label="Recipe" className={classes.avatar}>
+          //     R
+          // </Avatar>
+          // }
+          // action={
+          //   <IconButton aria-label="Settings">
+          //     <MoreVertIcon />
+          //   </IconButton>
+          // }
+          title="Trend Chart"
+        //subheader="September 14, 2016"
+        />
+        <CardContent>
+          {/* <Typography variant="h5" component="h2">
+            Chart
+                        </Typography> */}
+          <Chart />
+        </CardContent>
+        <CardActions>
+          <Button size="small"
+            onClick={() => this.handleClick(1, 1)}>Click here</Button>
+        </CardActions>
+      </Card>
+
+    </main>
   );
 }
 

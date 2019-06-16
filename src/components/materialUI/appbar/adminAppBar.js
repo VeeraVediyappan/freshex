@@ -17,6 +17,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ChatBubbleOutlinedIcon from '@material-ui/icons/ChatBubbleOutlined'; 
+import AndroidRoundedIcon from '@material-ui/icons/AndroidRounded'; 
 
 const drawerWidth = 240;
 
@@ -130,15 +133,16 @@ function AdminAppBar() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
+        {['Dashboard', 'Inbox', 'Chat', 'Log out'].map((text, index) => (
+              <ListItem button key={text}>
+                {<ListItemIcon>{text === 'Dashboard' ? <DashboardIcon /> :  
+                text === 'Inbox' ? <InboxIcon /> : 
+                text === 'Chat' ? <ChatBubbleOutlinedIcon /> :
+                text === 'Log out' ? <AndroidRoundedIcon /> : '' }</ListItemIcon>}
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+        {/* <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
@@ -146,7 +150,7 @@ function AdminAppBar() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       
       </React.Fragment>
